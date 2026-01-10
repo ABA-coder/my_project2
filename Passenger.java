@@ -1,31 +1,32 @@
-public class Passenger {
-    private String name;
-    private String surname;
+public class Passenger extends Human {
     private String passportNumber;
     private String flightNumber;
-    public Passenger(String name,String surname,String passportNumber,String flightNumber){
-        this.name=name;
-        this.surname=surname;
-        this.passportNumber=passportNumber;
-        this.flightNumber=flightNumber;
+
+    public Passenger(String name, String surname, String passportNumber, String flightNumber) {
+        super(name, surname);
+        this.passportNumber = passportNumber;
+        this.flightNumber = flightNumber;
     }
-    public String getname(){
-        return name;
-    }
-    public String getsurname(){
-        return surname;
-    }
-    public String getpassportNumber(){
-        return passportNumber;
-    }
-    public String getflightNumber(){
+
+    public String getFlightNumber() {
         return flightNumber;
     }
-    public void display(){
-        System.out.println("Name:"+name);
-        System.out.println("Surname:"+surname);
-        System.out.println("Pasport:"+passportNumber);
-        System.out.println("Flight Number:"+flightNumber);
+
+    @Override
+    public String getRole() {
+        return "Passenger";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Passenger)) return false;
+        Passenger p = (Passenger) o;
+        return passportNumber.equals(p.passportNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return passportNumber.hashCode();
     }
 }
-

@@ -1,5 +1,4 @@
 public class Booking {
-
     private Passenger passenger;
     private Flight flight;
     private String status;
@@ -8,24 +7,20 @@ public class Booking {
         this.passenger = passenger;
         this.flight = flight;
 
-        if (flight.getcapacity() > 0 &&
-                passenger.getflightNumber().equals(flight.getflightNumber())) {
+        if (flight.getCapacity() > 0 &&
+                passenger.getFlightNumber().equals(flight.getFlightNumber())) {
 
             status = "CONFIRMED";
-            flightSeatReduce();
-
+            flight.reduceCapacity();
         } else {
             status = "CANCELLED";
         }
     }
-    private void flightSeatReduce() {
-        int newCapacity = flight.getcapacity() - 1;
-
-}
 
     public void displayBooking() {
-        passenger.display();
-        flight.display();
+        System.out.println(passenger);
+        System.out.println(flight);
         System.out.println("Booking Status: " + status);
+        System.out.println("----------------------");
     }
 }
