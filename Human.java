@@ -1,5 +1,5 @@
 public abstract class Human {
-    protected String name;
+    protected String name;//parent class
     protected String surname;
 
     public Human(String name, String surname) {

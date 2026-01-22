@@ -9,39 +9,18 @@ public class Flight {
         this.capacity = capacity;
     }
 
-    public String getFlightNumber() {
-        return flightNumber;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
+    public String getFlightNumber() { return flightNumber; }
+    public String getDestination() { return destination; }
+    public int getCapacity() { return capacity; }
 
     public void reduceCapacity() {
-        if (capacity > 0) {
-            capacity--;
+        if (this.capacity > 0) {
+            this.capacity--;
         }
     }
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "flightNumber='" + flightNumber + '\'' +
-                ", destination='" + destination + '\'' +
-                ", capacity=" + capacity +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Flight)) return false;
-        Flight f = (Flight) o;
-        return flightNumber.equals(f.flightNumber);
-    }
-
-    @Override
-    public int hashCode() {
-        return flightNumber.hashCode();
+        return "Flight{flightNumber='" + flightNumber + "', destination='" + destination + "', capacity=" + capacity + "}";
     }
 }
